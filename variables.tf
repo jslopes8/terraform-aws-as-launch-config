@@ -1,20 +1,32 @@
-variable "lc_name" {
-    type = string
+variable "create" {
+    type = bool 
+    default = true
 }
-variable "image_id" {
-    type = string
-}
-variable "security_groups" {
-    type    = list
+variable "choose_ami" {
+    type = any 
     default = []
 }
-variable "iam_instance_profile" {
-    type    = string
-    default = " "
+variable "launch_configuration" {
+    type = bool 
+    default = true
+}
+variable "name" {
+    type = string 
+}
+variable "image_id" {
+    type = string 
+    default = null
 }
 variable "instance_type" {
-    type    = string
-    default = " "
+    type = string 
+}
+variable "iam_instance_profile" {
+    type = string 
+    default = null
+}
+variable "security_groups" {
+    type = list 
+    default = []
 }
 variable "key_name" {
     type = string
@@ -22,22 +34,27 @@ variable "key_name" {
 variable "user_data" {
     type = string
 }
-variable "root_block_device" {
-    type    = list(map(string))
-}
-variable "ebs_block_device" {
-    type    = list(map(string))
-    default = []
+variable "associate_public_ip_address" {
+    type = bool 
+    default = false
 }
 variable "enable_monitoring" {
-    type    = bool
-    default = "true"
+    type = bool 
+    default = false
 }
 variable "ebs_optimized" {
-    type    = bool
-    default = "true"
+    type = bool 
+    default = false
 }
-variable "associate_public_ip_address" {
-    type    = bool
-    default = "false"
+variable "spot_price" {
+    type = number 
+    default = null
+}
+variable "root_block_device" {
+    type = any 
+    default = []
+}
+variable "ebs_block_device" {
+    type = any 
+    default = []
 }

@@ -1,3 +1,3 @@
-output "as_config_name" {
-    value   = aws_launch_configuration.as_conf.name
+output "name" {
+    value   = aws_launch_configuration.main.0.name
 }
