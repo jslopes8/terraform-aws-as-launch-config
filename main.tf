@@ -37,6 +37,7 @@ resource "aws_launch_configuration" "main" {
             volume_type             = root_block_device.value.volume_type
             volume_size             = root_block_device.value.volume_size
             delete_on_termination   = root_block_device.value.delete_on_termination
+            encrypted               = lookup(root_block_device.value, "encrypted", null)
         }
     }
 
